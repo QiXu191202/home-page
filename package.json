@@ -22,6 +22,7 @@
     "typescript-eslint": "^8.34.1"
   },
   "dependencies": {
+    "antd": "^5.26.2",
     "react": "18",
     "react-dom": "18",
     "vite": "5"
