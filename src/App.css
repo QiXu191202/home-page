@@ -1,10 +1,13 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	height: 100vh;
+	margin: 0 auto;
+	overflow: scroll;
+	background: url('./static/bg1.jpg') no-repeat top center;
+	background-size: 100%;
 }
 
-.card {
-  padding: 2em;
+.container {
+	width: 75vw;
+	margin: 0 auto;
+	border: 1px solid #eee;
 }
