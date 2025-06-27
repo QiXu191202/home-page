@@ -2,12 +2,13 @@
 	height: 100vh;
 	margin: 0 auto;
 	overflow: scroll;
-	background: url('./static/bg1.jpg') no-repeat top center;
+	background: #d2f0ff url('./static/bg1.jpg') no-repeat top center;
 	background-size: 100%;
 }
 
 .container {
 	width: 75vw;
 	margin: 0 auto;
-	border: 1px solid #eee;
+	padding: 1rem;
+	border: 1px solid #eeeeee50;
 }
