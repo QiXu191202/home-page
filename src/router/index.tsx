@@ -6,6 +6,9 @@ import ListPage from '@/pages/List/List';
 import DetailPage from '@/pages/Detail/Detail';
 import NotFoundPage from '@/pages/NotFound/NotFound';
 
+import CardsPage from '@/pages/Games/Cards/Cards';
+import ShotsPage from '@/pages/Games/Shots/Shots';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: 'detail',
         element: <DetailPage />,
+      },
+      {
+        path: 'cards',
+        element: <CardsPage />,
+      },
+      {
+        path: 'shots',
+        element: <ShotsPage />,
       },
       {
         path: '*',
