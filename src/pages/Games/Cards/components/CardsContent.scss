@@ -1,0 +1,30 @@
+.card-content {
+  margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .card-item {
+    box-sizing: border-box;
+    width: calc(25% - 0.75rem);
+    height: 4rem;
+    border: 1px solid #eeeeee50;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .7);
+    font-size: 1.2rem;
+    color: $color-primary;
+    transition: all 1s;
+    cursor: pointer;
+
+    &.selected {
+      transform: rotateY(360deg);
+    }
+    &.matched {
+      background-color: #eeeeee50;
+      cursor: not-allowed;
+    }
+  }
+}
