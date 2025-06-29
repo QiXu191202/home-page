@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
-import './App.css';
+import './App.scss';
 
 const App: React.FC = () => {
 

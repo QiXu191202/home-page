@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import IconBack from '@/static/icons/icon-fanhui.png';
-import './Back.css';
+import './Back.scss';
 
 const Back = () => {
 	const navigate = useNavigate();

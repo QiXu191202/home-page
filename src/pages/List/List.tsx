@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Back from '@/components/Back/Back';
 import { gameList } from '@/common/data';
-import './List.css';
+import './List.scss';
 
 const List = () => {
 	const navigate = useNavigate();
