@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { shuffleArray } from '@/utils/utils';
 import { cardsList, CardItem } from '@/common/data';
+import { Modal } from 'antd';
 import './CardsContent.scss';
 
 type CardsContentProps = {
@@ -9,6 +10,19 @@ type CardsContentProps = {
 
 const CardsContent = (props: CardsContentProps) => {
 	const { start } = props;
+	useEffect(() => {
+		if (!start) {
+			selectedList.current = [];
+			setList(
+				list.map((item) => ({
+					...item,
+					selected: false,
+					matched: false,
+				}))
+			);
+		}
+	}, [start]);
+
 	const [list, setList] = useState<Array<CardItem>>([]);
 	useEffect(() => {
 		const resList = shuffleArray(cardsList);
@@ -17,7 +31,12 @@ const CardsContent = (props: CardsContentProps) => {
 
 	const selectedList = useRef<number[]>([]);
 	const onCardClick = (index: number) => {
-		if (!start) return;
+		if (!start) {
+			Modal.info({
+				title: '请先开始计时',
+			});
+			return;
+		};
 		if (selectedList.current.length < 2) {
 			selectedList.current.push(index);
 			console.log('selectedList', selectedList.current);
@@ -32,16 +51,16 @@ const CardsContent = (props: CardsContentProps) => {
         if (selectedList.current.length === 2) {
           const [first, second] = selectedList.current;
           if (list[first].id === list[second].id) {
-            const matchedId = list[first].id;
+						const matchedId = list[first].id;
             setList(
-              list.map((item) => ({
-                ...item,
+							list.map((item) => ({
+								...item,
                 matched: item.id === matchedId || item.matched,
               }))
             );
-            selectedList.current = [];
+						selectedList.current = [];
           } else {
-            selectedList.current = [];
+						selectedList.current = [];
             setList(
               list.map((item) => ({
                 ...item,
