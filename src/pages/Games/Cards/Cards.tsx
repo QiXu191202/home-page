@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Timer, { TimerHandle } from '@/components/Timer/Timer';
 import { Button, Space } from 'antd';
 import CardsContent from './components/CardsContent';
+import Back from '@/components/Back/Back';
 import './Cards.scss';
 
 const Cards = () => {
@@ -30,6 +31,7 @@ const Cards = () => {
 
 	return (
 		<div className='cards-page'>
+			<Back />
 			<div className='top-info'>
 				<div className='title'>卡牌</div>
 				<Timer
