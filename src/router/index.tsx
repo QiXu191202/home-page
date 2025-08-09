@@ -5,6 +5,7 @@ import HomePage from '@/pages/Home/Home';
 import ListPage from '@/pages/List/List';
 import DetailPage from '@/pages/Detail/Detail';
 import NotFoundPage from '@/pages/NotFound/NotFound';
+import InfoPage from '@/pages/Info/Info';
 
 import CardsPage from '@/pages/Games/Cards/Cards';
 import ShotsPage from '@/pages/Games/Shots/Shots';
@@ -31,12 +32,16 @@ const router = createBrowserRouter([
         element: <DetailPage />,
       },
       {
-        path: 'cards',
+        path: 'games/cards',
         element: <CardsPage />,
       },
       {
-        path: 'shots',
+        path: 'games/shots',
         element: <ShotsPage />,
+      },
+      {
+        path: 'info',
+        element: <InfoPage />,
       },
       {
         path: '*',

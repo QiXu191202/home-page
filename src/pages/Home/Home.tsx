@@ -1,14 +1,13 @@
-import { useState } from 'react';
-import { Button, ConfigProvider, Modal } from 'antd';
-import Com1 from '@/components/Com1';
-import Com2 from '@/components/Com2';
+// import { useState } from 'react';
+import { Button, ConfigProvider, Modal, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import './Home.scss';
 
 const App: React.FC = () => {
-	const [str, setStr] = useState('');
 	const navigate = useNavigate();
 
-	const onListClick = () => {
+	const onListClick = (event: React.MouseEvent) => {
+		console.log(event);
 		Modal.confirm({
 			title: '确认跳转吗？',
 			onOk: () => {
@@ -26,11 +25,11 @@ const App: React.FC = () => {
 				},
 			}}
 		>
-			<div className=''>
-				<Com1 setStr={setStr} />
-				<Com2 str={str} />
-
-				<Button onClick={onListClick}>点击跳转List</Button>
+			<div className='home-container'>
+				<Space>
+					<Button onClick={onListClick}>点击跳转List</Button>
+					<Button onClick={() => navigate('/info')}>点击跳转Info</Button>
+				</Space>
 			</div>
 		</ConfigProvider>
 	);
