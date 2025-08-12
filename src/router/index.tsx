@@ -6,6 +6,7 @@ import ListPage from '@/pages/List/List';
 import DetailPage from '@/pages/Detail/Detail';
 import NotFoundPage from '@/pages/NotFound/NotFound';
 import InfoPage from '@/pages/Info/Info';
+import WebRTC from '@/pages/RTC/WebRTC';
 
 import CardsPage from '@/pages/Games/Cards/Cards';
 import ShotsPage from '@/pages/Games/Shots/Shots';
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: 'info',
         element: <InfoPage />,
+      },
+      {
+        path: 'rtc',
+        element: <WebRTC />,
       },
       {
         path: '*',

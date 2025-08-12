@@ -1,0 +1,23 @@
+.rtc-page {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #localVideo {
+    margin-top: 1rem;
+  }
+
+  .img-list {
+    margin-top: 1rem;
+
+    .photo {
+      width: 5rem;
+      height: 5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
