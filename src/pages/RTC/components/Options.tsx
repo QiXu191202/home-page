@@ -1,9 +1,9 @@
 // import React from 'react'
 import { useState, useRef } from 'react';
-import { Space, Button } from 'antd';
+import { Space, Button, Select } from 'antd';
 
 const Options = () => {
-  // 使用useState来跟踪摄像头状态
+	// 使用useState来跟踪摄像头状态
 	const [cameraActive, setCameraActive] = useState(false);
 	// 使用useRef来存储媒体流
 	const streamRef = useRef<MediaStream | null>(null);
@@ -73,27 +73,60 @@ const Options = () => {
 		setImgList([]);
 	};
 
-  return {
-    controls: (
-      <Space>
-				<Button
-					onClick={openCamera}
-					disabled={cameraActive}
-				>
-					开启摄像头
-				</Button>
-				<Button
-					onClick={closeCamera}
-					disabled={!cameraActive}
-				>
-					关闭摄像头
-				</Button>
-				<Button onClick={takePhoto}>点击拍照</Button>
-				<Button onClick={clearPhoto}>清空</Button>
-			</Space>
-    ),
-    imgList
-  }
-}
+	// 获取设备列表
+	const [devices, setDevices] = useState<MediaDeviceInfo[]>([]);
+	const getDevices = async () => {
+		const ls = (await navigator.mediaDevices.enumerateDevices())
+			.filter((item) => item.kind === 'videoinput')
+			.map((val) => ({
+				...val,
+				label: val.label,
+				value: val.deviceId,
+			}));
+		setDevices(ls);
+		console.log('🚀🚀🚀 / devices', devices);
+	};
 
-export default Options
+	// 切换设备
+	const handleDeviceChange = async (deviceId: string) => {
+		const stream = await navigator.mediaDevices.getUserMedia({
+			audio: false,
+			video: {
+				deviceId: { exact: deviceId },
+			},
+		});
+		playLocalStream(stream);
+	};
+
+	return {
+		controls: (
+			<>
+				<Space>
+					<Button
+						onClick={openCamera}
+						disabled={cameraActive}
+					>
+						开启摄像头
+					</Button>
+					<Button
+						onClick={closeCamera}
+						disabled={!cameraActive}
+					>
+						关闭摄像头
+					</Button>
+					<Button onClick={takePhoto}>点击拍照</Button>
+					<Button onClick={clearPhoto}>清空</Button>
+					<Button onClick={getDevices}>获取设备列表</Button>
+				</Space>
+				<Select
+					options={devices}
+					placeholder='请选择摄像头'
+					onChange={handleDeviceChange}
+				></Select>
+			</>
+		),
+		imgList,
+	};
+};
+
+export default Options;
