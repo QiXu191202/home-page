@@ -29,7 +29,7 @@ const App: React.FC = () => {
 				<Space>
 					<Button onClick={onListClick}>点击跳转List</Button>
 					<Button onClick={() => navigate('/info')}>点击跳转Info</Button>
-					<Button onClick={() => navigate('/rtc')}>点击跳转RTC</Button>
+					<Button type='primary' onClick={() => navigate('/rtc')}>点击跳转RTC</Button>
 				</Space>
 			</div>
 		</ConfigProvider>
