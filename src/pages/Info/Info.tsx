@@ -1,9 +1,8 @@
-import React from 'react'
+// import React from 'react';
+import './Info.scss';
 
-const Info = () => {
-  return (
-    <div>Info</div>
-  )
-}
+const InfoPage = () => {
+	return <div className='info-page'>InfoPage</div>;
+};
 
-export default Info
+export default InfoPage;
