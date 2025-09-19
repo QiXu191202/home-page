@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate, createHashRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import AppLayout from '../App';
 import HomePage from '@/pages/Home/Home';
@@ -11,7 +11,7 @@ import WebRTC from '@/pages/RTC/WebRTC';
 import CardsPage from '@/pages/Games/Cards/Cards';
 import ShotsPage from '@/pages/Games/Shots/Shots';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <AppLayout />,
